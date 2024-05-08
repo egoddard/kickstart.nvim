@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -354,11 +354,23 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          file_ignore_patterns = {
+            'node_modules/.*',
+            '%.env',
+            'yarn.lock',
+            'package-lock.json',
+            'lazy-lock.json',
+            'init.sql',
+            'target/.*',
+            '.git/.*',
+            '__pycache__/.*',
+            '*.pyc',
+          },
+          --   mappings = {
+          --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          --   },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
@@ -812,6 +824,7 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      require('mini.tabline').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
