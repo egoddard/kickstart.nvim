@@ -66,13 +66,13 @@ cmp.setup {
 }
 
 -- Setup vim-dadbod
---cmp.setup.filetype({ 'sql' }, {
---  sources = {
---    { name = 'copilot', group_index = 1, priority = 100 },
---    { name = 'vim-dadbod-completion' },
---    { name = 'buffer' },
---  },
---})
+cmp.setup.filetype({ 'sql' }, {
+  sources = {
+    { name = 'copilot', group_index = 1, priority = 100 },
+    { name = 'vim-dadbod-completion' },
+    { name = 'buffer' },
+  },
+})
 
 local ls = require 'luasnip'
 ls.config.set_config {
